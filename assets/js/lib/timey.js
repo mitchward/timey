@@ -204,7 +204,8 @@
                     minRowInnerRow = $('<tr />').appendTo(minRowInnerTable);
 
 				var mins = 6,
-					i = 0;
+					i = 0,
+					m = 0;
 
 				if(rowIndex == options.minHr) {
 					if(typeof options.minHrMin == 'string') {
@@ -221,7 +222,8 @@
                 for(i; i < mins; i++) {
                     var min = $('<td />', {
                         'class' : 'timey__table__cell  timey__table__cell--min'
-                    }).text(':' + (i + '0')).appendTo(minRowInnerRow);
+                    }).text(':' + (m<10?'0'+m:Math.round(m))).appendTo(minRowInnerRow);
+					m+=60/mins;
                 }
 			};
 		};
